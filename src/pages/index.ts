@@ -1,2 +1,2 @@
 // Pages barrel export
-// Add your page component exports here
+export { About } from './About';
