@@ -1,8 +1,7 @@
 /**
  * ContourBackground Component
- * Renders an animated SVG background with topographic contour lines
- * Subtle design to sit behind hero content without affecting readability
- * Supports both light and dark modes
+ * Renders a technical/geodetic background with grid lines and topographic contours
+ * Designed to look like a professional GIS/Mapping workspace
  */
 export function ContourBackground() {
     return (
@@ -13,178 +12,93 @@ export function ContourBackground() {
                 preserveAspectRatio="xMidYMid slice"
             >
                 <defs>
-                    {/* Animated contour pattern */}
+                    {/* Pattern 1: Geodetic Grid with Crosshairs */}
                     <pattern
-                        id="contour-pattern"
+                        id="geo-grid"
                         x="0"
                         y="0"
-                        width="200"
-                        height="200"
+                        width="100"
+                        height="100"
                         patternUnits="userSpaceOnUse"
                     >
-                        {/* Layer 1 - Outer contours */}
+                        {/* Grid lines */}
                         <path
-                            d="M0,100 Q50,60 100,100 T200,100"
+                            d="M 100 0 L 0 0 0 100"
                             fill="none"
-                            className="stroke-gray-300 dark:stroke-slate-600"
-                            strokeWidth="1"
-                        />
-                        <path
-                            d="M0,130 Q60,90 120,130 T240,130"
-                            fill="none"
-                            className="stroke-gray-300 dark:stroke-slate-600"
-                            strokeWidth="1"
-                        />
-                        <path
-                            d="M0,70 Q40,40 80,70 T160,70 T240,70"
-                            fill="none"
-                            className="stroke-gray-300 dark:stroke-slate-600"
-                            strokeWidth="1"
-                        />
-
-                        {/* Layer 2 - Mid contours */}
-                        <path
-                            d="M-20,160 Q30,120 80,160 T180,160 T280,160"
-                            fill="none"
-                            className="stroke-gray-200 dark:stroke-slate-700"
-                            strokeWidth="0.8"
-                        />
-                        <path
-                            d="M-10,40 Q40,10 90,40 T190,40"
-                            fill="none"
-                            className="stroke-gray-200 dark:stroke-slate-700"
-                            strokeWidth="0.8"
-                        />
-
-                        {/* Layer 3 - Inner contours (tighter curves like hill peaks) */}
-                        <ellipse
-                            cx="100"
-                            cy="100"
-                            rx="60"
-                            ry="35"
-                            fill="none"
-                            className="stroke-gray-200 dark:stroke-slate-700"
-                            strokeWidth="0.8"
-                        />
-                        <ellipse
-                            cx="100"
-                            cy="100"
-                            rx="40"
-                            ry="22"
-                            fill="none"
-                            className="stroke-gray-300 dark:stroke-slate-600"
-                            strokeWidth="0.6"
-                        />
-                        <ellipse
-                            cx="100"
-                            cy="100"
-                            rx="20"
-                            ry="10"
-                            fill="none"
-                            className="stroke-gray-300 dark:stroke-slate-600"
+                            className="stroke-gray-200 dark:stroke-slate-800"
                             strokeWidth="0.5"
+                            strokeDasharray="4 4"
                         />
+                        {/* Intersection Crosses + */}
+                        <path
+                            d="M -5 0 L 5 0 M 0 -5 L 0 5"
+                            className="stroke-gray-300 dark:stroke-slate-700"
+                            strokeWidth="1"
+                        />
+                    </pattern>
+
+                    {/* Pattern 2: Topographic Contours */}
+                    <pattern
+                        id="topo-lines"
+                        x="0"
+                        y="0"
+                        width="400"
+                        height="400"
+                        patternUnits="userSpaceOnUse"
+                    >
+                        {/* Abstract Terrain Shapes */}
+                        <g className="stroke-gray-300 dark:stroke-slate-700" fill="none" strokeWidth="0.8">
+                            {/* Hill 1 */}
+                            <path d="M 50,200 Q 100,100 200,150 T 350,200" opacity="0.4" />
+                            <path d="M 40,210 Q 100,90 210,140 T 360,210" opacity="0.5" />
+                            <path d="M 30,220 Q 100,80 220,130 T 370,220" opacity="0.6" />
+
+                            {/* Geometric/Geodetic Arcs */}
+                            <circle cx="200" cy="200" r="100" strokeDasharray="10 10" opacity="0.2" />
+                            <circle cx="200" cy="200" r="150" strokeDasharray="20 10" opacity="0.15" />
+                            <circle cx="200" cy="200" r="250" strokeDasharray="30 15" opacity="0.1" />
+                        </g>
                     </pattern>
                 </defs>
 
-                {/* Background rectangle with animated pattern */}
+                {/* Layer 1: Static Grid Background */}
+                <rect width="100%" height="100%" fill="url(#geo-grid)" className="opacity-60" />
+
+                {/* Layer 2: Moving Topography - Very slow pan */}
                 <rect
-                    width="100%"
-                    height="100%"
-                    fill="url(#contour-pattern)"
-                    className="opacity-30 dark:opacity-40 animate-contour-drift"
+                    width="200%"
+                    height="200%"
+                    fill="url(#topo-lines)"
+                    className="opacity-50 animate-geo-pan"
                 />
 
-                {/* Additional floating contour lines for depth */}
-                <g className="opacity-25 dark:opacity-35 animate-contour-flow">
-                    <path
-                        d="M-100,150 Q200,50 500,150 T1100,150 T1700,150 T2300,150"
-                        fill="none"
-                        className="stroke-gray-400 dark:stroke-slate-500"
-                        strokeWidth="1.2"
-                        strokeDasharray="8 4"
-                    />
-                    <path
-                        d="M-50,200 Q250,120 550,200 T1150,200 T1750,200"
-                        fill="none"
-                        className="stroke-gray-300 dark:stroke-slate-600"
-                        strokeWidth="1"
-                        strokeDasharray="12 6"
-                    />
-                    <path
-                        d="M0,80 Q300,20 600,80 T1200,80 T1800,80"
-                        fill="none"
-                        className="stroke-gray-300 dark:stroke-slate-600"
-                        strokeWidth="0.8"
-                        strokeDasharray="6 3"
-                    />
-                </g>
-
-                {/* Secondary layer with different animation speed */}
-                <g className="opacity-20 dark:opacity-30 animate-contour-flow-slow">
-                    <path
-                        d="M-200,250 Q150,180 500,250 T1100,250 T1700,250"
-                        fill="none"
-                        className="stroke-gray-400 dark:stroke-slate-500"
-                        strokeWidth="1"
-                        strokeDasharray="10 5"
-                    />
-                    <path
-                        d="M-150,50 Q200,-20 550,50 T1150,50 T1750,50"
-                        fill="none"
-                        className="stroke-gray-300 dark:stroke-slate-600"
-                        strokeWidth="0.8"
-                        strokeDasharray="8 4"
-                    />
-                </g>
+                {/* Layer 3: Overlay Gradient Highlighting */}
+                <circle
+                    cx="50%"
+                    cy="50%"
+                    r="40%"
+                    fill="url(#radial-highlight)"
+                    className="hidden dark:block opacity-20"
+                />
+                <defs>
+                    <radialGradient id="radial-highlight">
+                        <stop offset="0%" stopColor="#3b82f6" stopOpacity="0.2" />
+                        <stop offset="100%" stopColor="transparent" stopOpacity="0" />
+                    </radialGradient>
+                </defs>
             </svg>
 
-            {/* Inline styles for animations */}
             <style>{`
-                @keyframes contour-drift {
+                @keyframes geo-pan {
                     0% {
                         transform: translate(0, 0);
                     }
-                    50% {
-                        transform: translate(-20px, -10px);
-                    }
                     100% {
-                        transform: translate(0, 0);
+                        transform: translate(-50px, -50px);
                     }
                 }
-
-                @keyframes contour-flow {
-                    0% {
-                        stroke-dashoffset: 0;
-                        transform: translateX(0);
-                    }
-                    100% {
-                        stroke-dashoffset: -50;
-                        transform: translateX(-50px);
-                    }
-                }
-
-                @keyframes contour-flow-slow {
-                    0% {
-                        stroke-dashoffset: 0;
-                        transform: translateX(0);
-                    }
-                    100% {
-                        stroke-dashoffset: -30;
-                        transform: translateX(-30px);
-                    }
-                }
-
-                .animate-contour-drift {
-                    animation: contour-drift 30s ease-in-out infinite;
-                }
-
-                .animate-contour-flow {
-                    animation: contour-flow 25s linear infinite;
-                }
-
-                .animate-contour-flow-slow {
-                    animation: contour-flow-slow 40s linear infinite;
+                .animate-geo-pan {
+                    animation: geo-pan 60s linear infinite;
                 }
             `}</style>
         </div>
