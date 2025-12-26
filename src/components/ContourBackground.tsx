@@ -1,4 +1,4 @@
-import greenContour from '@/assets/green-contour.png';
+import greenContour from '@/assets/green-contour.jpg';
 
 /**
  * ContourBackground Component
