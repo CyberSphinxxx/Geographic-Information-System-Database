@@ -133,15 +133,15 @@ export function LearnGis({ onNavigate }: LearnGisProps) {
             </nav>
 
             {/* Hero Section */}
-            <header className="relative w-full bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 overflow-hidden">
+            <header className="relative w-full bg-gradient-to-br from-slate-100 via-white to-slate-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 overflow-hidden">
                 {/* Decorative grid pattern */}
-                <div className="absolute inset-0 opacity-10">
+                <div className="absolute inset-0 opacity-20 dark:opacity-10">
                     <div
                         className="absolute inset-0"
                         style={{
                             backgroundImage: `
-                                linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
-                                linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px)
+                                linear-gradient(rgba(0,0,0,0.05) 1px, transparent 1px),
+                                linear-gradient(90deg, rgba(0,0,0,0.05) 1px, transparent 1px)
                             `,
                             backgroundSize: '50px 50px'
                         }}
@@ -153,18 +153,18 @@ export function LearnGis({ onNavigate }: LearnGisProps) {
                         {/* Text Content */}
                         <div className="flex-1 text-center lg:text-left">
                             <div className="flex items-center justify-center lg:justify-start gap-2 mb-6">
-                                <BookOpen className="w-6 h-6 text-blue-400" />
-                                <span className="text-blue-400 font-medium text-sm uppercase tracking-wider">
+                                <BookOpen className="w-6 h-6 text-blue-600 dark:text-blue-400" />
+                                <span className="text-blue-600 dark:text-blue-400 font-medium text-sm uppercase tracking-wider">
                                     Learn GIS
                                 </span>
                             </div>
-                            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white tracking-tight mb-6">
+                            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white tracking-tight mb-6">
                                 The Science of{' '}
-                                <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
+                                <span className="bg-gradient-to-r from-blue-600 to-cyan-500 dark:from-blue-400 dark:to-cyan-400 bg-clip-text text-transparent">
                                     Where
                                 </span>
                             </h1>
-                            <p className="text-lg sm:text-xl text-slate-300 max-w-xl mx-auto lg:mx-0 leading-relaxed">
+                            <p className="text-lg sm:text-xl text-gray-600 dark:text-slate-300 max-w-xl mx-auto lg:mx-0 leading-relaxed">
                                 Geographic Information Systems (GIS) provide a framework for gathering,
                                 managing, and analyzing data.
                             </p>
@@ -186,7 +186,7 @@ export function LearnGis({ onNavigate }: LearnGisProps) {
                                     }}
                                 >
                                     <div className="absolute inset-0 flex items-center justify-center">
-                                        <span className="text-purple-300 text-xs sm:text-sm font-semibold uppercase tracking-wider">
+                                        <span className="text-purple-700 dark:text-purple-300 text-xs sm:text-sm font-semibold uppercase tracking-wider">
                                             Analysis
                                         </span>
                                     </div>
@@ -213,7 +213,7 @@ export function LearnGis({ onNavigate }: LearnGisProps) {
                                     }}
                                 >
                                     <div className="absolute inset-0 flex items-center justify-center">
-                                        <span className="text-blue-300 text-xs sm:text-sm font-semibold uppercase tracking-wider">
+                                        <span className="text-blue-700 dark:text-blue-300 text-xs sm:text-sm font-semibold uppercase tracking-wider">
                                             Data
                                         </span>
                                     </div>
@@ -240,7 +240,7 @@ export function LearnGis({ onNavigate }: LearnGisProps) {
                                     }}
                                 >
                                     <div className="absolute inset-0 flex items-center justify-center">
-                                        <span className="text-green-300 text-xs sm:text-sm font-semibold uppercase tracking-wider">
+                                        <span className="text-green-700 dark:text-green-300 text-xs sm:text-sm font-semibold uppercase tracking-wider">
                                             Real World
                                         </span>
                                     </div>
@@ -327,7 +327,7 @@ export function LearnGis({ onNavigate }: LearnGisProps) {
             `}</style>
 
             {/* 5 Components of GIS Section */}
-            <section className="py-16 sm:py-20">
+            <section className="py-16 sm:py-20 bg-white dark:bg-slate-900">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     {/* Section Header */}
                     <div className="text-center mb-12">
@@ -470,7 +470,7 @@ export function LearnGis({ onNavigate }: LearnGisProps) {
             </section>
 
             {/* How GIS Works: USTP Campus Layer Model */}
-            <section className="py-16 sm:py-20">
+            <section className="py-16 sm:py-20 bg-white dark:bg-slate-900">
                 <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
                     {/* Section Header */}
                     <div className="text-center mb-12">
