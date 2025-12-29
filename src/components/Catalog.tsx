@@ -1,5 +1,5 @@
 import { useState, useMemo } from 'react';
-import { Search, Filter, Database, Globe, Github, Info } from 'lucide-react';
+import { Search, Filter, Database, Globe, Github, Info, BookOpen } from 'lucide-react';
 import { gisSources } from '@/data';
 import { SourceCard, ContourBackground, ThemeToggle } from '@/components';
 import type { GisSourceType } from '@/types';
@@ -56,6 +56,13 @@ export function Catalog({ onNavigate }: CatalogProps) {
 
                         {/* Right: Nav Links */}
                         <div className="flex items-center gap-2 sm:gap-4">
+                            <button
+                                onClick={() => onNavigate?.('learn')}
+                                className="flex items-center gap-1.5 px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                            >
+                                <BookOpen className="w-4 h-4" />
+                                <span className="hidden sm:inline">Learn GIS</span>
+                            </button>
                             <button
                                 onClick={() => onNavigate?.('about')}
                                 className="flex items-center gap-1.5 px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
