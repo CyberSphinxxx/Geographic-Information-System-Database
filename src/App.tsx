@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { Catalog } from '@/components';
-import { About } from '@/pages';
+import { About, LearnGis } from '@/pages';
 
-type Page = 'catalog' | 'about';
+type Page = 'catalog' | 'about' | 'learn';
 
 function App() {
     const [currentPage, setCurrentPage] = useState<Page>('catalog');
@@ -14,6 +14,9 @@ function App() {
             )}
             {currentPage === 'about' && (
                 <About onNavigate={(page) => setCurrentPage(page as Page)} />
+            )}
+            {currentPage === 'learn' && (
+                <LearnGis onNavigate={(page) => setCurrentPage(page as Page)} />
             )}
         </main>
     );
