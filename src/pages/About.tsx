@@ -1,4 +1,4 @@
-import { ShieldCheck, BadgeCheck, AlertTriangle, GraduationCap, Users, Database, Github, Home } from 'lucide-react';
+import { ShieldCheck, BadgeCheck, AlertTriangle, GraduationCap, Users, Database, Github, Home, BookOpen } from 'lucide-react';
 import { ThemeToggle } from '@/components';
 
 interface AboutProps {
@@ -34,6 +34,13 @@ export function About({ onNavigate }: AboutProps) {
                             >
                                 <Home className="w-4 h-4" />
                                 <span className="hidden sm:inline">Catalog</span>
+                            </button>
+                            <button
+                                onClick={() => onNavigate?.('learn')}
+                                className="flex items-center gap-1.5 px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                            >
+                                <BookOpen className="w-4 h-4" />
+                                <span className="hidden sm:inline">Learn GIS</span>
                             </button>
                             <a
                                 href="https://github.com/CyberSphinxxx/Geographic-Information-System-Database"
